@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			document.onkeydown=function (ev)
+			{
+				var oEvent=ev||event;
+				var oDiv=document.getElementById('div1');
+				
+				
+				//左 37,右39
+				
+				if(oEvent.keyCode==37)
+				{
+					oDiv.style.left=oDiv.offsetLeft-10+'px';
+				}
+				else if(oEvent.keyCode==39)
+				{
+					oDiv.style.left=oDiv.offsetLeft+10+'px';
+					
+				}
+				else if(oEvent.keyCode==38)
+				{
+					oDiv.style.top=oDiv.offsetHeight-10+'px';
+					
+				}
+				else if(oEvent.keyCode==40)
+				{
+					oDiv.style.top=oDiv.offsetHeight+10+'px';
+					
+				}
+			}
+
+		</script>
+	</head>
+	<body>
+		<div id="div1" style="width: 100px;height: 100px; background: #CCC; position: absolute;">
+			
+		</div>
+	</body>
+</html>

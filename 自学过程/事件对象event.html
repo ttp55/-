@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				document.onclick=function(ev)
+				{
+					var oEvent=ev||event;
+					
+					alert(oEvent.clientX+','+oEvent.clientY);
+					
+					
+					
+					
+					
+					//IE
+					/*if(ev)
+					{
+						alert(ev.clientX+','+ev.clientY);
+					}
+					//FF
+					else
+					{
+						alert(event.clientX+','+event.clientY);
+					}*/
+					
+					
+				}
+			}
+
+		</script>
+	</head>
+	<body style="border:1px solid red">
+	</body>
+</html>
