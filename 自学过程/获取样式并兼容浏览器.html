@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#div1{width: 100px;height: 100px;background: red;}
+		</style>
+		<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementById('div1');
+			
+			
+			if(oDiv.currentStyle){
+				//IE下
+				alert(oDiv.currentStyle.width);
+			}
+			else{
+				//FF下
+				alert(getComputedStyle(oDiv, false).width);
+			}
+			
+		}	
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+</html>

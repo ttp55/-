@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oUl=document.getElementById('ul1');
+				//IE
+				//oUl.firstChild.style.background='red';
+				
+				//FF
+				//oUl.firstElementChild.style.background='red';
+				
+				//兼容性解决
+				var oFirst=oUl.firstElementChild||oUl.firstChild;
+				
+				oFirst.style.background='red';
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>
