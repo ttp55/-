@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{width: 100px; height: 200px; background-color: #4169E1;left: -100px; position:absolute;}
+			#div1 span{width: 20px;height: 60px;line-height: 20px;position: absolute;text-align: center;left: 100px;top: 70px;background-color: yellow;}
+		</style>
+		<script type="text/javascript">
+			//尽量减少参数的传递，从传两个参数到只传递一个参数，学会利用参数之间的关系
+			window.onload=function()
+			{
+				var oDiv=document.getElementById('div1');
+			
+				oDiv.onmouseover=function()
+				{
+					
+					startMove(0);
+				}
+				oDiv.onmouseout=function()
+				{
+					startMove(-100);
+				}
+			}
+			var time=null;
+			function startMove(leftpx)
+			{
+				var oDiv=document.getElementById('div1');
+				
+				clearInterval(time);
+				time=setInterval(function()
+				{
+					var iSpeed=0;
+					if(oDiv.offsetLeft<leftpx)
+					{
+						iSpeed=1;
+					}
+					else
+					{
+						iSpeed=-1;
+					}
+					if(oDiv.offsetLeft==leftpx)
+					{
+						clearInterval(time);
+					}
+					else
+					{
+						oDiv.style.left=oDiv.offsetLeft+iSpeed+'px';
+					}
+				}
+				,1)
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<span>分享到</span>
+		</div>
+	</body>
+</html>

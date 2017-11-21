@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{width: 100px; height: 200px; background-color: #4169E1;left: -100px; position:absolute;}
+			#div1 span{width: 20px;height: 60px;line-height: 20px;position: absolute;text-align: center;left: 100px;top: 70px;background-color: yellow;}
+		</style>
+		<script type="text/javascript">
+			//使用传参数的方式简化代码
+			window.onload=function()
+			{
+				var oDiv=document.getElementById('div1');
+			
+				oDiv.onmouseover=function()
+				{
+					
+					startMove(0,1);
+				}
+				oDiv.onmouseout=function()
+				{
+					startMove(-100,-1);
+				}
+			}
+			var time=null;
+			function startMove(leftpx, iSpeed)
+			{
+				var oDiv=document.getElementById('div1');
+				
+				clearInterval(time);
+				time=setInterval(function()
+				{
+					
+					if(oDiv.offsetLeft==leftpx)
+					{
+						clearInterval(time);
+					}
+					else
+					{
+						oDiv.style.left=oDiv.offsetLeft+iSpeed+'px';
+					}
+				}
+				,1)
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<span>分享到</span>
+		</div>
+	</body>
+</html>
