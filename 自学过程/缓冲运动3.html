@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1 {width: 100px; height: 100px; background-color: royalblue;position: absolute; left: 800px; top: 50px;}
+		</style>
+		<script type="text/javascript">
+			var time=null;
+			
+			
+			function startMove(leftpx)
+			{
+				var oDiv=document.getElementById('div1');
+				
+				clearInterval(time);
+				time=setInterval(function (){
+				var iSpeed=(leftpx-oDiv.offsetLeft)/30;
+				iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+				/*if(iSpeed>0)
+				{
+					iSpeed=Math.ceil(iSpeed);
+				}
+				else
+				{
+					iSpeed=Math.floor(iSpeed);	
+				}
+				*/
+				if(oDiv.offsetLeft==leftpx)	//是否到达终点
+				{
+					clearInterval(time);	//到达终点
+				}		
+				else
+				{
+					oDiv.style.left=oDiv.offsetLeft+iSpeed*2+'px';	//到达之前
+				}
+				
+				
+			}, 30);
+				
+			}
+
+		</script>
+	</head>
+	<body>
+		<input id="btn1" type="button" value="开始运动" onclick="startMove(400)"/>
+		<div id="div1"></div>
+		<span style="width:1px ;height:300px; background: black; position: absolute; left:400px; top:0px;"></span>
+	</body>
+</html>

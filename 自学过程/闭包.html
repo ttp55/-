@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//无论点击哪个li都返回5
+			window.onload=function()
+			{
+				var lis=document.getElementsByTagName('li');
+				
+				for(var i=0;i<lis.length;i++)
+				{
+					(function(i)//将i的值存到自执行函数参数里 这样就可以打印每个i的值
+					{
+						lis[i].onclick=function()
+						{
+							console.log(i);
+						}
+					})(i)
+				}
+			}
+
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>1123123</li>
+			<li>1123123</li>
+			<li>1123123</li>
+			<li>1123123</li>
+			<li>1123123</li>
+		</ul>
+	</body>
+</html>

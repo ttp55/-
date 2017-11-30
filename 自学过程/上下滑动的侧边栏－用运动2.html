@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{right: 0;width: 100px;height: 100px;background: darkgoldenrod;position: absolute;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function c()
+			{
+				var oDiv=document.getElementById('div1');
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				
+				
+				oDiv.style.top=scrollTop+(document.documentElement.clientHeight-oDiv.offsetHeight)/2+'px';
+			}
+			window.onscroll=function()
+			{
+				var oDiv=document.getElementById('div1');
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				
+				
+				//oDiv.style.top=scrollTop+(document.documentElement.clientHeight-oDiv.offsetHeight)/2+'px';
+				t=scrollTop+(document.documentElement.clientHeight-oDiv.offsetHeight)/2;
+				startMove(t);
+			}
+			var time=null;
+			function startMove(b)
+			{
+				b=Math.ceil(b);
+				var oDiv=document.getElementById('div1');
+				
+				clearInterval(time);
+				time=setInterval(function()
+				{
+					var iSpeed=(b-oDiv.offsetTop)/8;
+					iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+					
+					if(oDiv.offsetTop==b)
+					{
+						clearInterval(time);
+					}
+					else
+					{
+						oDiv.style.top=oDiv.offsetTop+iSpeed+'px';
+						
+					}
+				}
+				,10)
+			}
+			
+		</script>
+	</head>
+	<body style="height: 2000px;">
+		<div id="div1"></div>
+	</body>
+</html>

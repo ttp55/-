@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{width:100px;height:50px;background:red;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var oDiv=document.getElementById('div1');
+				
+				oDiv.onmouseover=function()
+				{
+					startMove(300,200);
+ 				}
+				oDiv.onmouseout=function()
+				{
+					startMove(100,50);
+				}
+			}
+			
+			var time=null;
+			var time1=null;
+			
+			function startMove(iTarget,iTarget1)
+			{
+				var oDiv=document.getElementById('div1');
+				
+				clearInterval(time);
+				clearInterval(time1);
+				time=setInterval(function()
+					{
+						var iSpeed=(iTarget-oDiv.offsetWidth)/8;
+						iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+						if(oDiv.offsetWidth==iTarget)
+						{
+							clearInterval(time);
+						}
+						else
+						{
+							oDiv.style.width=oDiv.offsetWidth+iSpeed+'px';
+						}
+						
+					}
+				,30);
+				time1=setInterval(function()
+				{
+					var iSpeed1=(iTarget1-oDiv.offsetHeight)/8;
+					iSpeed1=iSpeed1>0?Math.ceil(iSpeed1):Math.floor(iSpeed1);
+					if(oDiv.offsetHeight==iTarget1)
+						{
+							clearInterval(time);
+						}
+						else
+						{
+							oDiv.style.height=oDiv.offsetHeight+iSpeed1+'px';
+						}
+				},30)
+			}
+
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+</html>
