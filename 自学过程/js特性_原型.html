@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+window.onload = function(){
+        var lio = {};
+        lio.age= '18';
+        Object.prototype.name = 'anna';
+        if(!NaN){
+            for(var i in lio){
+                if(lio.hasOwnProperty(i)){
+                    console.log('本身属性有:'+i);
+                }else {
+                    console.log('原型上有属性:'+i);
+                }
+            }
+        }
+    };
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

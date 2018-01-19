@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+function serilizeUrl(url) {
+    var result = {};
+    url = url.split("?")[1];
+    var map = url.split("&");
+    for(var i = 0, len = map.length; i < len; i++) {
+        result[map[i].split("=")[0]] = map[i].split("=")[1];
+    }
+    return result;
+}
+var c=serilizeUrl("http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e");
+console.log(c);
+
+// 邮箱的正则var regMail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

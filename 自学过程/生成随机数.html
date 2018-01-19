@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		var i=[];
+		function b(is,ie)
+		{
+			var j=ie-is;
+			return Math.floor(Math.random()*j+is);
+		}
+		for(var p=0;p<10;p++)
+		{
+			i.push(b(10,100000));
+		}
+		i.sort();
+		console.log(i);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

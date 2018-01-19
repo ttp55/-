@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var i=null;
+			window.onload=zhuanhuan;
+			function $(id)
+			{
+				return document.getElementById(id);
+			}	
+			function zhuanhuan()
+			{
+				i=$("danwei").options[$("danwei").selectedIndex].value;
+			}
+			function t(){
+				s=document.getElementById("txt1").value;
+			}
+			function gaibian()
+			{
+				var p;
+				n=s;
+				if(i!=null)
+				{
+					p=i;
+				}
+				zhuanhuan();
+				var f=1.4,m=0.9144,w=4.3056,n;
+				if(p==i)
+				{
+					return n;
+				}
+				if(p==1)
+				{
+					if(i==2)
+					{
+						n=n*f;
+					}
+					else if(i==3)
+					{
+						n=n*f*m;
+					}
+					else if(i==4)
+					{
+						n=n/w;
+					}
+				}
+				else if(p==2)
+				{
+					if(i==1)
+					{
+						n=n/f;
+					}
+					else if(i==3)
+					{
+						n=n*m;
+					}
+					else if(i==4)
+					{
+						n=n/f/w;
+					}
+				}
+				else if(p==3)
+				{
+					if(i==1)
+					{
+						n=n/f/m;
+					}
+					else if(i==2)
+					{
+						n=n/m;
+					}
+					else if(i==4)
+					{
+						n=n/f/m/w;
+					}
+				}
+				else if(p==4)
+				{
+					if(i==1)
+					{
+						n=n*w;
+					}
+					else if(i==2)
+					{
+						n=n*w*f;
+					}
+					else if(i==3)
+					{
+						n=n*f*m*w;
+					}
+				}
+				s=n;
+				z=n.toFixed();
+				
+				
+				document.getElementById("txt1").value=z;
+			}
+					
+				
+
+		</script>
+	</head>
+	<body>
+		<input type="text" id="txt1" onblur="t()"/>
+		<select id="danwei" onchange="gaibian()">
+   			 <option value="1">克/平米</option>
+   			 <option value="2">克/米</option>
+   			 <option value="3">克/码</option>
+   			 <option value="4">姆米</option>
+		</select>
+	</body>
+</html>
